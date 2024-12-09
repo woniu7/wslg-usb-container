@@ -29,6 +29,7 @@ if [[ "$(uname -r)" == *"WSL"* ]]; then
 	export DISPLAY=:0
 	export WAYLAND_DISPLAY=wayland-0
 	ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/
+	sudo  ln -s /run/dev/hidraw0  /dev/
 	export SCRIPTRUN=1
 fi
 fi
