@@ -1,0 +1,6 @@
+#hidraw0 for yubikey usb acess
+if [[ "$(uname -r)" == *"WSL"* ]]; then 
+sudo systemd-nspawn --bind=/mnt --bind=/dev/dri --property='DeviceAllow=/dev/dri/card0 rwm' --bind=/dev/hidraw0 --property='DeviceAllow=/dev/hidraw0 rwm'  -b -U -D /mnt/archlinux/
+else 
+sudo systemd-nspawn --bind=/dev/hidraw0 --property='DeviceAllow=/dev/hidraw0 rwm'  -b U -D /mnt/archlinux/
+fi
